@@ -23,7 +23,8 @@ class App extends React.Component {
 		return (
 			<ul>
 				{this.state.images.map(src => {
-					return <Thumbnail src={'/images/' + src} />
+					// TODO: somehow grab the game titles and set them as the alt text
+					return <Thumbnail src={'/images/' + src} alt='Game Cover' />
 				})}
 			</ul>
 		);
@@ -31,7 +32,7 @@ class App extends React.Component {
 }
 
 function Thumbnail(props) {
-	return <img src={props.src} />
+	return <img alt={props.alt} src={props.src} className="thumbnail" />
 }
 
 ReactDOM.render(<App />, document.getElementById('app-root'));
