@@ -7,7 +7,7 @@ const express = require('express'),
 
 app.use((req, res, next) => {
 	req.requestId = uuid.v4();
-	console.log('url: ', req.url);
+	// console.log('url: ', req.url);
 	next();
 });
 
@@ -21,6 +21,7 @@ app.get('/me', (req, res) => {
 app.use(express.static('./public'));
 app.use('/images', imageRouter);
 
-app.listen(5010, () => {
-	console.log('server listening!');
+const port = 5010;
+app.listen(port, () => {
+	console.log(`server listening on port ${port}`);
 });
